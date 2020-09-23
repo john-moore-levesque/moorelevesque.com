@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}
+  {% if author and not category %}
+    {{ author | capfirst }}'s Blog
+  {% elif category and not author %}
+    Posts tagged {{ category }}
+  {% elif category and author %}
+    Posts by {{ author | capfirst }} tagged {{ category }}
+  {% else %}
+    Blog
+  {% endif %}
+{% endblock %}
+<div class="container">
+
+{% block page_content %}
+  {% if author and not category %}
+    <div class="header {{ author }}">
+      <div class="container">
+    <h1 class="page-title">{{ author | capfirst }}'s Blog</h1>
+    </div>
+    </div>
+  {% elif category and not author %}
+    <div class="header">
+      <div class="container">
+    <h1 class="page-title">Posts tagged {{ category }}</h1>
+    </div>
+    </div>
+  {% elif category and author %}
+    <div class="header {{ author }}">
+      <div class="container">
+    <h1 class="page-title">Posts by {{ author | capfirst }} tagged {{ category }}</h1>
+    </div>
+    </div>
+  {% else %}
+  <div class="header">
+    <div class="container">
+    <h1 class="page-title">Home</h1>
+  </div>
+</div>
+  {% endif %}
+  <div class="col-lg-12 content">
+  <div class="container">
+    {% for post in posts %}
+        <div class="blog-teaser">
+        <h2><a href="{% url 'blog_detail' post.author post.slug%}">{{ post.title }}</a></h2>
+        <div class="blog-teaser-info">
+        <small>
+            {{ post.last_modified.date }} by <b>{{ post.author | capfirst }}</b> |&nbsp;
+            Categories:&nbsp;
+            {% for category in post.category.all %}
+            {% if not author %}
+              <a href="{% url 'blog_category' category.name %}">
+            {% else %}
+              <a href="{% url 'blog_author_category' author category.name %}">
+            {% endif %}
+              {{ category.name }}
+            </a>&nbsp;
+            {% endfor %}
+        </small>
+        </div>
+        {% if empty %}
+          <i>No posts to display.</i>
+        {% else %}
+          <div class="blog-teaser-abstract">
+          <p>{{ post.abstract | safe }}...</p>
+          </div>
+          <div class="blog-teaser-image">
+          <picture>
+           <img class="d-block w-5"
+             srcset="{{ post.image.url }} 600w,
+                     {{ post.image.url }} 1200w,
+                     {{ post.image.url }} 2000w,
+                     {{ post.image.url }} 4000w"
+             sizes="(max-width: 800px) 40px, (max-width: 1170px) 60px, 100px"
+             style="display: block; margin: auto;"
+             alt="{{ post.imageAlt }}"
+            >
+            </div>
+          </picture>
+          {% endif %}
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
+</div>

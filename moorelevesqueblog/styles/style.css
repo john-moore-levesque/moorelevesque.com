@@ -1,0 +1,150 @@
+p {
+  text-align: justify;
+}
+
+.header {
+  text-align: left;
+  background-color: #3F88C5;
+}
+
+.header a {
+  color: white;
+}
+
+
+h1.blog-title {
+  margin: 0;
+  padding: 0rem 0rem 1rem;
+  margin-bottom: 1rem;
+}
+
+h3, h1.page-title {
+  margin: 0;
+  padding: 1rem 0rem;
+  margin-bottom: 1rem;
+}
+
+h3.comment-header {
+  margin:0;
+  padding:0;
+}
+
+h1 {
+}
+
+.site-title {
+}
+
+#homeslide {
+  margin-bottom: 1rem;
+}
+
+.moorelevesque-nav {
+  background-color: #1C3144;
+}
+
+
+.blog-image img {
+  margin-top: 1rem;
+}
+
+
+.moorelevesque-nav a {
+  color: white;
+}
+
+.moorelevesque-nav a:hover {
+  color: rgba(256, 256, 256, 0.65);
+}
+
+.header a:hover {
+  text-decoration: none;
+  color: rgba(256, 256, 256, 0.65);
+
+}
+
+#site-branding {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.5rem;
+}
+
+#site-branding a:hover {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+  font-size: 1.5rem;
+
+}
+
+.navbar-nav {
+  float: right;
+  margin-left: auto!important;
+  margin-right: 0;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.moorelevesque-toggler .navbar-toggler-icon {
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(239, 189, 130)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.moorelevesque-toggler.navbar-toggler {
+  border-color: rgb(239, 189, 130);
+}
+
+.moorelevesque-toggler:focus {
+  outline: 5px auto rgba(239, 189, 130, 0.5)
+}
+
+.john {
+  background-color: #EEC643;
+}
+
+.christa {
+  background-color: #986DB0;
+}
+
+.blog-author-block {
+  padding-top: 0.5rem;
+}
+
+.content-edit {
+  background-color: #F64740;
+}
+
+.login {
+  background-color: #941B0C;
+}
+
+.white {
+  color: white;
+}
+
+.add-comment {
+  background-color: #40f6a2;
+  margin: 1rem 0rem;
+}
+
+.add-comment:hover {
+  background-color: #0bdf7d;
+}
+
+.blog-teaser-image img{
+  margin: auto 0 auto auto;
+}
+
+.blog-teaser-abstract {
+  float: left;
+  font-weight: 300;
+}
+
+.blog-body {
+  font-weight: 300;
+}
+
+.flatpage {
+  font-weight: 300;
+}

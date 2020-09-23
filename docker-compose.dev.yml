@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  web:
+    build:
+      context: ./moorelevesqueblog
+      dockerfile: Dockerfile.dev
+    command: gunicorn --workers 3 --bind 0.0.0.0:8000 moorelevesqueblog.wsgi:application
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+    expose:
+     - 8000
+    env_file:
+      - ./.env/.env.dev
+  nginx-proxy:
+    container_name: nginx-proxy
+    build: nginx
+    restart: always
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
+  media_volume:
+  certs:
+  html:
+  vhost:
